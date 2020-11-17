@@ -1,11 +1,27 @@
 import sys
 
-from Ui import Ui_Form
+from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QWidget, QApplication
 from PyQt5.QtGui import QPainter, QColor, QImage
 from random import randint
 
+class Ui_Form(object):
+    def setupUi(self, Form):
+        Form.setObjectName("Form")
+        Form.resize(435, 331)
+        self.btn = QtWidgets.QPushButton(Form)
+        self.btn.setGeometry(QtCore.QRect(160, 300, 101, 31))
+        self.btn.setObjectName("btn")
 
+        self.retranslateUi(Form)
+        QtCore.QMetaObject.connectSlotsByName(Form)
+
+    def retranslateUi(self, Form):
+        _translate = QtCore.QCoreApplication.translate
+        Form.setWindowTitle(_translate("Form", "Form"))
+        self.btn.setText(_translate("Form", "кнопка"))
+
+        
 class Example(QWidget, Ui_Form):
     def __init__(self):
         super().__init__()
